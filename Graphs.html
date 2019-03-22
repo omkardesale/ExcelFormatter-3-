@@ -1,0 +1,26 @@
+<html>
+<body>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="charts.js"></script>
+<script src="exporting.js"></script>
+<script src="export-data.js"></script>
+<script src="graph.js"></script>
+
+<div>
+	<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+		Text: <input type="text" id="text"/> <br/><br/>
+		Title: <input type="text" id="title"/> <br/><br/>
+		SubTitle: <input type="text" id="subTitle"/> <br/><br/>
+		Unit: <input type="text" id="unit"/> <br/><br/>
+		Graph Type: <input type="text" id="graphType"/> <br/><br/>
+		Upload file: <input type="file" name="file"/><br/><br/>
+		<input type="button" value="Show Graph" id="submit"/>
+	</form>
+</div>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto; display: none;"></div>
+</body>
+</html>

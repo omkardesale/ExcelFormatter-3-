@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="com/sarang/formatter/security/" kind="src" path="ExcelFormatter/src/main/java"/>
+	<classpathentry kind="src" path="ExcelFormatter/src/main/java/com/sarang/formatter/security"/>
+	<classpathentry kind="src" path="ExcelFormatter/src/test/java"/>
+	<classpathentry kind="output" path="ExcelFormatter/target/classes"/>
+</classpath>

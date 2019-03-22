@@ -1,0 +1,88 @@
+Highcharts.chart('container', {
+
+    title: {
+        text: 'July temperatures'
+    },
+
+    xAxis: {
+        type: 'datetime'
+    },
+
+    yAxis: {
+        title: {
+            text: null
+        }$(document).ready(function(){
+	$.ajax({url: "http://localhost:8070/graphData", success: function(result){
+		result = JSON.parse(result);
+		Highcharts.chart('container', {
+			  chart: {
+        type: 'column'
+    },
+			title: {
+				text: result.title
+			},
+			subtitle: {
+				text: result.subTitle
+			},
+			xAxis: {
+				categories: result.categories,
+				crosshair: true
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Rainfall (mm)'
+				}
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+			plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+			series: result.seriesData
+		})
+	}});
+	
+});
+    },
+
+    tooltip: {
+        crosshairs: true,
+        shared: true,
+        valueSuffix: '°C'
+    },
+
+    legend: {
+    },
+
+    series: [{
+        name: 'Temperature',
+        data: averages,
+        zIndex: 1,
+        marker: {
+            fillColor: 'white',
+            lineWidth: 2,
+            lineColor: Highcharts.getOptions().colors[0]
+        }
+    }, {
+        name: 'Range',
+        data: ranges,
+        type: 'arearange',
+        lineWidth: 0,
+        linkedTo: ':previous',
+        color: Highcharts.getOptions().colors[0],
+        fillOpacity: 0.3,
+        zIndex: 0,
+        marker: {
+            enabled: false
+        }
+    }]
+});
