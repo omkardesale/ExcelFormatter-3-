@@ -1,0 +1,166 @@
+.filterDiv {
+    text-align: center;
+    margin: 2px;
+    display: none;
+  }
+
+  .filterDiv.upload{
+    padding: 4%;
+    float: left;
+  }
+
+  .filterDiv.upload h5, h4{
+    float: left;
+  } 
+  
+  .filterDiv.upload p{
+    float: left;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .container {
+    margin-top: 20px;
+    overflow: hidden;
+  }
+
+  .myBtnContainerClass{
+    padding: 0 30px;
+  }
+
+  .bigContainer{
+    display: block;
+    display: inline-block;
+    width: 80%;
+    margin-left: 250px;
+  }
+  
+  /* Style the buttons */
+  .btn {
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 30px 16px;
+    background-color: #448AFF;
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #304FFE;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .btn:focus {
+    background-color: #304FFE;
+    color: white;
+  }
+
+  input[type=file]{
+    width:90px;
+    color:transparent;
+    border: 1px solid #999;
+    padding: 23px 0 0 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.visContainer{
+  float: right;
+  display: none;
+  padding: 10px 0;
+}
+
+.column-container{
+  padding-top: 10%;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #d2d2d2;
+  outline: 0;
+  font-size: 16px;
+  color: #212121;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 16px;
+  cursor: text;
+  top: 20px;
+}
+
+label,
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.form__field:focus ~ .form__label {
+  color: #009788;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #009788;
+}
+
+.formContainer{
+  padding: 5%;
+}
+
+
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Choose File';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  padding: 13px 6px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  color: #355ecf;
+  height: 50px;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+
+#hideBoy{
+  display: block;
+  border: 1px solid #999;
+}

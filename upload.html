@@ -29,10 +29,41 @@
     <link rel="stylesheet" href="css/contact-input-style.css">
     <link rel="stylesheet" href="css/hover-effect.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
   <body>
+
+    
+    <nav class="navbar navbar-default top-bar affix" data-spy="affix" data-offset-top="250" >
+        <div class="container" >
+            <!- Brand and toggle get grouped for better mobile display ->
+            <div class="navbar-header page-scroll">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="mainName">Data Visualizer</a>
+            </div>
+            <!- Collect the nav links, forms, and other content for toggling ->
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    
+                </ul>
+            </div>
+            <!- /.navbar-collapse ->
+        </div>
+        <!- /.container-fluid ->
+    </nav>
    
         <script
         src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -42,6 +73,7 @@
       <script src="exporting.js"></script>
       <script src="export-data.js"></script>
       <script src="graph.js"></script>
+      <script src="javaScriptShowHide.js"></script>
       
       
   
@@ -97,94 +129,125 @@
 
 
 <link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="StyleShowHide.css">
 
 <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-md-12 col-lg-4 " style="padding: 80px 0px 30px 140px;">
+        <div class="row padding bigContainer">
+            <div id="myBtnContainer" class="myBtnContainerClass">
+                <button class="btn" onclick="filterSelection('cars')">Upload</button>
+                <button class="btn" onclick="filterSelection('animals')"> Add Description</button>
+                <button class="btn" onclick="filterSelection('fruits')"> Visualize</button>
+            </div>
+
+            <div id="hideBoy">
+                    <p>
+                        What to add I dont know herr
+                    </p>
+            </div>
+
+            <div class="filterDiv cars upload">
+                <div class="row">
+                    <h4>Upload Your Files</h4>    
+                </div>
+                <div class="row">  
                     <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
-                        Text: <input type="text" id="text"/> <br/><br/>
-                        Title: <input type="text" id="title"/> <br/><br/>
-                        SubTitle: <input type="text" id="subTitle"/> <br/><br/>
-                        Unit: <input type="text" id="unit"/> <br/><br/>
-                        Graph Type: <input type="text" id="graphType"/> <br/><br/>
-                        Upload file: <input class="inputButton" type="file" name="file"/><br/><br/>
-                        <input type="button" value="Show Graph" id="submit"/>
+                        <input class="custom-file-input" type="file" name="file" id="aa" onchange="pressed()"/><br/><br/>
                     </form>
-            </div>
-            <div class="col-lg-8"style="padding-top: 10% ">
-                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto; display: none;"></div>
-
-            </div>
-
-            
-            <div class="column-container">
-                <div class="row">
-                    <div class="column" >
-                        <a onclick="myFunction('bar')">
-                            <div class="card">
-                                <div class="cardContainer">
-                                    <h4><b>Bar Graph</b></h4> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                
-                    <div class="column">
-                        <a onclick="myFunction('line')" >
-                            <div class="card">
-                                <div class="cardContainer">
-                                    <h4><b>Line Graph</b></h4> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
                 </div>
-
-                <div class="row">
-                    <div class="column">
-                        <a onclick="myFunction('pie')" >
-                            <div class="card">
-                                <div class="cardContainer">
-                                    <h4><b>Pie Chart</b></h4> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                
-                    <div class="column">
-                        <a onclick="myFunction('spline')" >
-                            <div class="card">
-                                <div class="cardContainer">
-                                    <h4><b>Spline Graph</b></h4> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="column">
-                        <a onclick="myFunction('column')" >
-                            <div class="card">
-                                <div class="cardContainer">
-                                    <h4><b>Column Chart</b></h4> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                
-                    <div class="column">
-                        <a href="https://www.gitlab.com" >
-                            <div class="card">
-                                <div class="cardContainer">
-                                    <h4><b>Dynamic Graph</b></h4> 
-                                </div>
-                            </div>
-                        </a>
+                <div class="row">    
+                    <h5>Upload CSV or Excel spreadsheets</h5>
+                    <div class="column-4">    
+                        <p align="left">Select your data (including header row/column) in Excel or LibreOffice. You can also upload a CSV or Excel file from your computer.</p>
                     </div>
                 </div>
             </div>
-            
+
+            <div class="filterDiv animals formContainer" style="float:left">
+                <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+                    <input type="text" id="text" class="form__field" placeholder="Text"/> <br/><br/>
+                    <input type="text" id="title" class="form__field" placeholder="Title" /> <br/><br/>
+                    <input type="text" id="subTitle" class="form__field" placeholder="SubTitle"/> <br/><br/>
+                    <input type="text" id="unit" class="form__field" placeholder="Unit"/> <br/><br/>
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="column-2">
+                    <div class="column-container filterDiv fruits">
+                        <div class="row">
+                            <div class="column" >
+                                <a onclick="myFunction('bar')">
+                                    <div class="card">
+                                        <div class="cardContainer">
+                                            <h4><b>Bar Graph</b></h4> 
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                            <div class="column">
+                                <a onclick="myFunction('line')" >
+                                    <div class="card">
+                                        <div class="cardContainer">
+                                            <h4><b>Line Graph</b></h4> 
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="column">
+                                <a onclick="myFunction('pie')" >
+                                    <div class="card">
+                                        <div class="cardContainer">
+                                            <h4><b>Pie Chart</b></h4> 
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                            <div class="column">
+                                <a onclick="myFunction('spline')" >
+                                    <div class="card">
+                                        <div class="cardContainer">
+                                            <h4><b>Spline Graph</b></h4> 
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="column">
+                                <a onclick="myFunction('column')" >
+                                    <div class="card">
+                                        <div class="cardContainer">
+                                            <h4><b>Column Chart</b></h4> 
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                            <div class="column">
+                                <a href="https://www.gitlab.com" >
+                                    <div class="card">
+                                        <div class="cardContainer">
+                                            <h4><b>Dynamic Graph</b></h4> 
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="column-3">
+                        <div class="visContainer filterDiv fruits">
+                            <div id="container" style="padding:2%; width: 900px;"></div>
+                        </div>               
+                </div>
+            </div>
         </div></div>
     <hr>
 </div>
