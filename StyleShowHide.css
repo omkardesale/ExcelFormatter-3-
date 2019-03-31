@@ -7,6 +7,15 @@
   .filterDiv.upload{
     padding: 4%;
     float: left;
+    margin-left: 50px;
+  }
+
+  #uploadID{
+    display: inline-block;
+  }
+
+  .filterDiv.description{
+    margin-left: 50px;
   }
 
   .filterDiv.upload h5, h4{
@@ -15,6 +24,10 @@
   
   .filterDiv.upload p{
     float: left;
+  }
+
+  .upload{
+    width: 87%;
   }
   
   .show {
@@ -28,13 +41,14 @@
 
   .myBtnContainerClass{
     padding: 0 30px;
+    margin-left: 65px;
   }
 
   .bigContainer{
     display: block;
     display: inline-block;
     width: 80%;
-    margin-left: 250px;
+    margin-left: 190px;
   }
   
   /* Style the buttons */
@@ -163,4 +177,20 @@ label,
 #hideBoy{
   display: block;
   border: 1px solid #999;
+}
+
+#barContainer{
+  border: 1px solid #999;
+  display: block;
+}
+
+#mytable,td{
+  border:1px solid black;
+}
+
+
+#placeholderDiv{
+  display: inline-block;
+  height: 300px;
+  color: darkgray;
 }

@@ -1,7 +1,10 @@
 
-filterSelection("all")
 function filterSelection(c) {
-  myotherFunction();
+  //myotherFunction();
+
+  if (c =='descriptionParameter' || c == 'visualizeParameter'){
+    document.getElementById('uploadID').style.display = 'none';
+  }
   var x, i;
   x = document.getElementsByClassName("filterDiv");
   if (c == "all") c = "";
@@ -42,19 +45,6 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
-
-window.pressed = function(){
-  var a = document.getElementById('aa');
-  if(a.value == "")
-  {
-      fileLabel.innerHTML = "Choose file";
-  }
-  else
-  {
-      var theSplit = a.value.split('\\');
-      fileLabel.innerHTML = theSplit[theSplit.length-1];
-  }
-};
 
 function myotherFunction() {
   document.getElementById("hideBoy").style.display = "none";
